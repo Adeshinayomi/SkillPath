@@ -12,7 +12,7 @@ The application uses **CognoDB**, a managed graph database, to model the relatio
 
 **Backend API:** https://skillpath-b6ft.onrender.com
 
-**Repository:** `<YOUR_GITHUB_REPOSITORY_URL>`
+**Repository:** `https://github.com/Adeshinayomi/SkillPath`
 
 ---
 
@@ -340,7 +340,7 @@ VITE_API_URL=https://skillpath-b6ft.onrender.com/api
 ## 1. Clone the repository
 
 ```bash
-git clone <YOUR_GITHUB_REPOSITORY_URL>
+git clone https://github.com/Adeshinayomi/SkillPath
 
 cd SkillPath
 ```
