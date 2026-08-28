@@ -106,6 +106,41 @@ async function getSkills() {
   }
 }
 
+async function getSkillDetails(skillName) {
+  const session = driver.session();
+
+  try {
+    const result = await session.run(
+      `
+      MATCH (s:Skill {name: $skillName})
+      OPTIONAL MATCH (prerequisite:Skill)-[:PREREQUISITE_OF]->(s)
+      OPTIONAL MATCH (s)-[:RELATED_TO]-(related:Skill)
+      OPTIONAL MATCH (s)-[:USED_IN]->(project:Project)
+      RETURN s.name AS name,
+             s.category AS category,
+             s.description AS description,
+             collect(DISTINCT prerequisite.name) AS prerequisites,
+             collect(DISTINCT related.name) AS relatedSkills,
+             collect(DISTINCT {name: project.name, description: project.description}) AS projects
+      `,
+      { skillName }
+    );
+
+    if (result.records.length === 0) return null;
+    const record = result.records[0];
+    return {
+      name: record.get("name"),
+      category: record.get("category"),
+      description: record.get("description"),
+      prerequisites: record.get("prerequisites").filter(Boolean),
+      relatedSkills: record.get("relatedSkills").filter(Boolean),
+      projects: record.get("projects").filter((project) => project.name),
+    };
+  } finally {
+    await session.close();
+  }
+}
+
 async function getMissingSkills(jobName, userSkills) {
   const session = driver.session();
 
@@ -189,6 +224,7 @@ module.exports = {
   getJobByName,
   getJobSkills,
   getSkills,
+  getSkillDetails,
   getMissingSkills,
   getLearningPaths,
 };
