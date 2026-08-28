@@ -6,6 +6,18 @@ SkillPath is a web application that helps users understand the skills required f
 
 The application uses **CognoDB**, a managed graph database, to model the relationships between jobs and skills. Users can select a target role, provide their existing skills, and receive a skill-gap analysis based on the relationships stored in the graph.
 
+
+## Screenshots
+       Homepage
+       
+<img width="1920" height="1080" alt="skillpath-ruby vercel app and 37 more pages - Profile 1 - Microsoft​ Edge 8_28_2026 10_53_15 PM" src="https://github.com/user-attachments/assets/9efc3478-ece0-4b47-82be-452549c98737" />
+
+       skillpage
+       
+<img width="1920" height="1080" alt="skillpath-ruby vercel app and 37 more pages - Profile 1 - Microsoft​ Edge 8_28_2026 10_51_07 PM" src="https://github.com/user-attachments/assets/9b0a7237-771c-4f06-a4bf-7e16eeb60cff" />
+
+
+
 ## Live Demo
 
 **Frontend:** https://skillpath-ruby.vercel.app/
