@@ -1,4 +1,4 @@
-const driver = require("../config/DatabaseConfig");
+const driver = require("../Config/DatabaseConfig");
 
 async function getJobs() {
   const session = driver.session();
