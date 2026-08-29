@@ -61,7 +61,7 @@ export function HomePage({ jobs, skills, loading, error, onAnalyze }: Props) {
             onSubmit={submit}
             className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8"
           >
-            <div className="mb-8 flex items-start justify-between gap-4">
+            <div className="mb-8 flex flex-col flex-col-reverse md:flex-row items-start justify-between gap-4">
               <div>
                 <h2 className="text-xl font-semibold">
                   Build your skill profile
@@ -88,9 +88,9 @@ export function HomePage({ jobs, skills, loading, error, onAnalyze }: Props) {
                   onChange={(event) => setJob(event.target.value)}
                   className="mt-2 w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm outline-none focus:border-brand-500 focus:ring-4 focus:ring-brand-50"
                 >
-                  <option value="">Search or select a role</option>
+                  <option value="" className="text-sm">Search or select a role</option>
                   {jobs.map((item) => (
-                    <option key={item.name}>{item.name}</option>
+                    <option className="text-sm" key={item.name}>{item.name}</option>
                   ))}
                 </select>
                 {touched && !job && (
